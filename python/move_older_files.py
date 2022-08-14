@@ -19,11 +19,9 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--older_than_in_days', help='How old a file should be to be moved to backup '
-                                                 'folder')
-parser.add_argument('--source', help='Path to where the files that should be scanned')
-parser.add_argument('--destination', help='Path where files will be moved to (where you would '
-                                          'like to backup the files)')
+parser.add_argument('--older_than_in_days', help='How old a file should be, to be moved to a backup directory')
+parser.add_argument('--source', help='Path to where the files will be scanned and moved from')
+parser.add_argument('--destination', help='Path where files will be moved to (where you would like to backup the files)')
 
 args = parser.parse_args()
 
@@ -32,8 +30,7 @@ list_of_files_to_leave = []
 
 for directory_path, directory_names, filenames in os.walk(args.source):
     if os.path.basename(directory_path).startswith('.'):
-        print(f'Directory {os.path.basename(directory_path)} starts with a dot (.) and will be '
-              f'skipped.')
+        print(f'Directory {os.path.basename(directory_path)} starts with a dot (.) and will be skipped.')
     else:
         for file in filenames:
             full_file_path = os.path.join(directory_path, file)

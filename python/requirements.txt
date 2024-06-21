@@ -1,5 +1,5 @@
 pendulum==3.0.0
-pip==24.0
+pip==24.1
 python-dateutil==2.9.0.post0
 pytzdata==2020.1
 setuptools==70.0.0
